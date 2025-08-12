@@ -1,11 +1,23 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import LogoSfondo from '../assets/LogoSfondo.png';
+import background from '../assets/background.jpg';
 ---
 
-<Layout>
-	<Welcome />
+<Layout >
+	<section
+	id="hero-key"
+	class="h-screen scale-125 fixed overflow-hidden flex items-center justify-center">
+		<picture
+		class="relative w-full h-full flex  justify-center">
+			<img
+			id="hero-key-logo"
+			src={LogoSfondo.src}
+			class="absolute object-cover w-1/3 mt-20">
+			<img
+			id="hero-key-backgound"
+			src={background.src}
+			class="object-cover">
+		</picture>
+	</section>
 </Layout>
