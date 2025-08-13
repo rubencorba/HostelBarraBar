@@ -1,3 +1,7 @@
+---
+import  flechita  from '../assets/flechita.png';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -7,19 +11,45 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Hostel Barra Bar Balneario Camboriu</title>
 	</head>
-	<body class="flex items-center justify-center h-screen">
-		<slot />
+	<body class="flex justify-center">
+		<slot/>
+
+		<div
+			id="hero-footer"
+			class="fixed flex bottom-[4rem] animate-bounce-pulse rotate-90 w-[10rem]"
+		>
+			<img src={ flechita.src }  alt="flecha">
+		</div>
 	</body>
 </html>
 
 <style is:global>
 	@import "tailwindcss";
 
+	@keyframes bounce-pulse {
+		0% {
+			transform: translateY(0) scale(0.8);
+			opacity: 0.8;
+		}
+		50% {
+			transform: translateY(-7px) scale(1);
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(0) scale(0.8);
+			opacity: 0.8;
+		}
+	}
+
+	.animate-bounce-pulse {
+		animation: bounce-pulse 2s ease-in-out infinite;
+	}
+
 	html,
 	body {
-		/* background-color: black; */
-		height: 300vh;
+		background-color: black;
 		overflow-x: hidden;
+		height: 300vh;
 		overscroll-behavior: none;
 		font-family:
 			system-ui,

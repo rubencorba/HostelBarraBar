@@ -1,23 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import LogoSfondo from '../assets/LogoSfondo.png';
-import background from '../assets/background.jpg';
+import Layout from "../layouts/Layout.astro";
+import LogoSfondo from "../assets/LogoSfondo.png";
+import background from "../assets/background.jpg";
 ---
 
-<Layout >
+<Layout>
 	<section
-	id="hero-key"
-	class="h-screen scale-125 fixed overflow-hidden flex items-center justify-center">
-		<picture
-		class="relative w-full h-full flex  justify-center">
+		id="hero-key"
+		class="h-screen scale-125 absolute flex items-center justify-center"
+	>
+		<picture class="relative flex justify-center">
 			<img
-			id="hero-key-logo"
-			src={LogoSfondo.src}
-			class="absolute object-cover w-1/3 mt-20">
+				id="hero-key-logo"
+				src={LogoSfondo.src}
+				class="fixed object-cover w-2/5 mt-20"
+			/>
 			<img
-			id="hero-key-backgound"
-			src={background.src}
-			class="object-cover">
+				id="hero-key-backgound"
+				src={background.src}
+				class="object-cover h-[120vh]"
+			/>
 		</picture>
 	</section>
 </Layout>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	const tl = gsap.timeline({
+		scrollTrigger: {
+			scrub: 1,
+		},
+	});
+
+	tl
+	.to("#hero-key", {scale: 1, duration: 1})
+	.to("#hero-key-logo", {opacity: 0}, "<")
+</script>
