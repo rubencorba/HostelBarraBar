@@ -1,5 +1,5 @@
 ---
-import  flechita  from '../assets/flechita.png';
+/* import  flechita  from '../assets/flechita.png'; */
 ---
 
 <!doctype html>
@@ -11,15 +11,10 @@ import  flechita  from '../assets/flechita.png';
 		<meta name="generator" content={Astro.generator} />
 		<title>Hostel Barra Bar Balneario Camboriu</title>
 	</head>
-	<body class="flex justify-center">
-		<slot/>
+	<body >
+		<slot />
 
-		<div
-			id="hero-footer"
-			class="fixed flex bottom-[4rem] animate-bounce-pulse rotate-90 w-[10rem]"
-		>
-			<img src={ flechita.src }  alt="flecha">
-		</div>
+		
 	</body>
 </html>
 
@@ -49,7 +44,7 @@ import  flechita  from '../assets/flechita.png';
 	body {
 		/* overscroll-behavior-y: none; */
 		
-
+		/* height: 300vh; */
 
 		background-color: black;
 		height: 300vh;
