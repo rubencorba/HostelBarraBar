@@ -4,12 +4,13 @@ import LogoSfondo from "../assets/LogoSfondo.png";
 import background from "../assets/background.jpg";
 ---
 
-<Layout>
+<Layout >
+	<div id="logo-mask" class=" top-0 w-full h-screen">
 	<section
 		id="hero-key"
-		class="h-screen scale-125 absolute flex items-center justify-center"
+		class="h-screen  scale-150 absolute flex  justify-center"
 	>
-		<picture class="relative flex justify-center">
+		<picture class="relative flex justify-center overflow-visible">
 			<img
 				id="hero-key-logo"
 				src={LogoSfondo.src}
@@ -18,11 +19,37 @@ import background from "../assets/background.jpg";
 			<img
 				id="hero-key-backgound"
 				src={background.src}
-				class="object-cover h-[120vh]"
+				class="object-cover h-[120vh] overflow-visible"
 			/>
 		</picture>
 	</section>
+	</div>
 </Layout>
+
+<style>
+	#logo-mask {
+		background-color: white;
+		mask-image: url("../assets/MaskPweb.png");
+		mask-size: clamp(5000vh, 3500%, 0vh);
+		mask-position: center 25%;
+		mask-repeat: no-repeat;
+		
+	}
+
+	/* #hero-key {
+		transform: scale(0.8);
+	}
+
+	#hero-key-logo {
+		transform: scale(0.8);
+	}
+
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+	} */
+</style>
 
 <script>
 	import { gsap } from "gsap";
@@ -31,12 +58,18 @@ import background from "../assets/background.jpg";
 	gsap.registerPlugin(ScrollTrigger);
 
 	const tl = gsap.timeline({
+		/* ease: "power2.out", */
 		scrollTrigger: {
-			scrub: 1,
+			scrub: 4,
 		},
 	});
 
 	tl
 	.to("#hero-key", {scale: 1, duration: 1})
 	.to("#hero-key-logo", {opacity: 0}, "<")
+	.to("#hero-footer", {opacity: 0}, "<")
+	.to("#logo-mask", {
+		maskSize: "clamp(20vh, 25%, 30vh)"}, 0.2)
+	.to("#hero-key", 
+		{opacity: 0, duration: 0.2}, 0.4)
 </script>
