@@ -2,39 +2,51 @@
 import Layout from "../layouts/Layout.astro";
 import LogoSfondo from "../assets/LogoSfondo.png";
 import background from "../assets/background.jpg";
-import  flechita  from '../assets/flechita.png';
-
+import flechita from "../assets/flechita.png";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout >
-	<div id="pin-container" class="h-[250vh] flex justify-center  ">
-	<div id="logo-mask" class="fixed w-full h-screen flex justify-center">
-		<section
-			id="hero-key"
-			class="fixed h-screen w-full max-w-lg scale-250 "
-		><!-- h-screen -->
-			<picture class="fixed relative w-full h-full flex justify-center items-center">
-				<img
-					id="hero-key-logo"
-					src={LogoSfondo.src}
-					class="fixed object-contain w-2/5 z-10 "
-				/>
-				<img
-					id="hero-key-backgound"
-					src={background.src}
-					class=" w-full h-full object-cover"
-				/>
-			</picture>
-		</section>
-		<div
-		id="hero-footer"
-		class="fixed justify-center items-center flex bottom-[4rem] left-1/2 -translate-x-1/2 animate-bounce-pulse rotate-90 w-[6rem]"
-	>
-		<img src={ flechita.src }  alt="flecha">
+	<div  class=" bg-[url('../assets/HostelCompleto.jpg')] bg-cover bg-center bg-black/80 bg-blend-overlay">
+	<div id="pin-container" class="h-[250vh] flex justify-center">
+		<div id="logo-mask" class="fixed w-full h-screen flex justify-center">
+			<section
+				id="hero-key"
+				class="fixed h-screen w-full max-w-lg scale-250"
+			>
+				<!-- h-screen -->
+				<picture
+					class="fixed relative w-full h-full flex justify-center items-center"
+				>
+					<img
+						id="hero-key-logo"
+						src={LogoSfondo.src}
+						class="fixed object-contain w-2/5 z-10"
+					/>
+					<img
+						id="hero-key-backgound"
+						src={background.src}
+						class="w-full h-full object-cover"
+					/>
+				</picture>
+			</section>
+			<div
+				id="hero-footer"
+				class="fixed justify-center items-center flex bottom-[4rem] left-1/2 -translate-x-1/2 animate-bounce-pulse rotate-90 w-[6rem]"
+			>
+				<img src={flechita.src} alt="flecha" />
+			</div>
+		</div>
 	</div>
-	</div>
+	
+	
+	
+	<section class=" text-white min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-gradient-to-b from-primary/10 to-background">
+		<Hero>
 
-	</div>
+	</section>
+
+</div>
 </Layout>
 
 <style>
@@ -44,7 +56,6 @@ import  flechita  from '../assets/flechita.png';
 		mask-size: clamp(6000vh, 500%, 0vh);
 		mask-position: center 27.3%;
 		mask-repeat: no-repeat;
-		
 	}
 </style>
 
@@ -53,6 +64,7 @@ import  flechita  from '../assets/flechita.png';
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 	gsap.registerPlugin(ScrollTrigger);
+
 
 	const tl = gsap.timeline({
 		/* ease: "power2.out", */
@@ -64,8 +76,13 @@ import  flechita  from '../assets/flechita.png';
 	tl.to("#hero-key", { scale: 1, duration: 1 })
 		.to("#hero-key-logo", { opacity: 0 }, "<")
 		.to("#hero-footer", { opacity: 0 }, "<")
-		.to("#logo-mask", {
-				maskSize: "clamp(20vh, 25%, 30vh)"}, 0.9)
-		.to("#hero-key", { opacity: 0, duration: 0.8 }, 0.8);
+		.to(
+			"#logo-mask",
+			{
+				maskSize: "clamp(20vh, 25%, 30vh)",
+			},
+			0.9,
+		)
+		.to("#hero-key", { opacity: 0, duration: 0.8 }, 0.8)
+		
 </script>
-
