@@ -7,7 +7,7 @@ import Hero from "../components/Hero.astro";
 ---
 
 <Layout >
-	<div  class=" bg-[url('../assets/HostelCompleto.jpg')] bg-cover bg-center bg-black/80 bg-blend-overlay">
+	<div class="bg-fixed bg-[url('../assets/HostelCompleto.jpg')] bg-cover bg-center bg-black/80 bg-blend-overlay">
 	<div id="pin-container" class="h-[250vh] flex justify-center">
 		<div id="logo-mask" class="fixed w-full h-screen flex justify-center">
 			<section
@@ -41,8 +41,8 @@ import Hero from "../components/Hero.astro";
 	
 	
 	
-	<section class=" text-white min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-gradient-to-b from-primary/10 to-background">
-		<Hero>
+	<section id="hero" class="opacity-0 text-white  flex flex-col items-center  px-4 py-2 ">
+		<Hero >
 
 	</section>
 
@@ -84,5 +84,5 @@ import Hero from "../components/Hero.astro";
 			0.9,
 		)
 		.to("#hero-key", { opacity: 0, duration: 0.8 }, 0.8)
-		
+		.to("#hero", { opacity: 1, duration: 1 }, ">"); // el ">" hace que arranque justo después
 </script>
